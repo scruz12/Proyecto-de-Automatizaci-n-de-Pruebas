@@ -125,7 +125,7 @@
                 <input id="centro" name="txt_centro" class="form-control" required>
               </div>
               <div class="d-grid">
-                <input class="btn btn-primary" type="submit" id="btnIngresar" name="btnIngresar"></input>
+                <input class="btn btn-primary" type="submit" id="btnIngresar" name="btnIngresar" value="Guardar"></input>
               </div>
               <hr class="my-4">
               <br/>
