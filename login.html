@@ -1,0 +1,90 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>EDUS</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <style>
+  body {
+    background: #0000;
+    background: linear-gradient(to right, #d6d8da, #33AEFF);
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn-google {
+    color: white !important;
+    background-color: #ea4335;
+  }
+  
+  .btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
+  }
+</style>
+</head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Iniciar sesión</h5>
+            <form>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="correo" placeholder="name@example.com">
+                <label for="floatingInput">Correo Electronico</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="clave" placeholder="Contraseña">
+                <label for="floatingPassword">Contraseña</label>
+              </div>
+
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                <label class="form-check-label" for="rememberPasswordCheck">
+                  Remember password
+                </label>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="button" id="botonInicio" onclick="Validar()">Iniciar sesión</button>
+              </div>
+              <hr class="my-4">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function Validar(){
+    var correo = document.getElementById('correo').value;
+    var clave = document.getElementById('clave').value;
+
+    if(correo == "correo@correo.com" && clave == "123"){
+      alert("Inicio exitoso")
+      setCookie(correo);
+      window.location.href = 'index2.html';
+    } else {
+      alert("Usuario no registrado, por favor dirijase a su centro de salud mas cercano")
+    }
+  }
+
+  function setCookie(correo) {
+  const d = new Date();
+  d.setTime(d.getTime() + (3*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = correo + ";" + expires;
+}
+</script>
