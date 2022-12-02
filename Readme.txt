@@ -1,6 +1,11 @@
-Thanks for downloading this template!
+----------------------------------
+EDUS
+----------------------------------
+Grupo 2 | Calidad de Software
+Lunes Noche
+----------------------------------
+Integrantes:
 
-Template Name: Medilab
-Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+Valeria Flores
+Steven Jimenez
+Oscar Navarro
