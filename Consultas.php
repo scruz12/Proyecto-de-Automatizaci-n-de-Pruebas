@@ -12,6 +12,38 @@ if(isset($_POST["ConsultarRecetas2"]))
 }
 
 
+//Subir imagenes
+
+error_reporting(0);
+ 
+$msg = "";
+ 
+// If upload button is clicked ...
+if (isset($_POST['subir'])) {
+ 
+    $imagen = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./imagenes/" . $imagen;
+    
+    $enlace = ConectarBD();
+    // Get all the submitted data from the form
+    $sentencia = "INSERT INTO expediente (imagen) VALUES ('$imagen')";
+ 
+    // Execute query
+    
+    $listaProductos = $enlace -> query($sentencia);
+ 
+    // Now let's move the uploaded image into the folder: image
+    if (move_uploaded_file($tempname, $folder)) {
+        echo "<h3>  Image uploaded successfully!</h3>";
+    } else {
+        echo "<h3>  Failed to upload image!</h3>";
+    }
+}
+
+//
+
+
 function ConsultarCitas()
 {
     $enlace = ConectarBD();
