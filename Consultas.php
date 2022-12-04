@@ -6,6 +6,11 @@ if(isset($_POST["ConsultarCitas2"]))
     ConsultarCitas();
 }
 
+if(isset($_POST["ConsultarRecetas2"]))
+{
+    ConsultarRecetas();
+}
+
 
 function ConsultarCitas()
 {
@@ -27,6 +32,50 @@ function ConsultarCitas()
 
     CierreBD($enlace);
 }
+
+
+
+function ConsultarRecetas()
+{
+    $enlace = ConectarBD();
+    $sentencia = "CALL ConsultarRecetas();";
+    $listaRecetas = $enlace -> query($sentencia);
+
+    while($item = mysqli_fetch_array($listaRecetas))
+    {
+      echo "<tr>";
+      echo "<td>" . $item["NumeroReceta"] . "</td>";
+      echo "<td>" . $item["Cedula"] . "</td>";
+      echo "<td>" . $item["Nombre"] . "</td>";
+      echo "<td>" . $item["Apellidos"] . "</td>";
+      echo "<td>" . $item["Fecha"] . "</td>";
+      echo "<td>" . $item["Centro"] . "</td>";
+      echo "</tr>";
+    }
+
+    CierreBD($enlace);
+}
+
+
+function IngresarReceta($cedula, $nombre, $apellidos, $fecha, $centro)
+{
+    $respuesta = "";
+    
+    try
+    {
+        $enlace = ConectarBD();
+        $sentencia = "CALL IngresarReceta('$cedula', '$nombre', '$apellidos', '$fecha', '$centro');";
+        $enlace -> query($sentencia);
+    }
+    catch(Exception $ex)
+    {
+        $respuesta = $ex -> getMessage();
+    }
+
+    CierreBD($enlace);
+    return $respuesta;
+}
+
 
 
 function IngresarCita($cedula, $correo, $fecha, $hora, $centro)
