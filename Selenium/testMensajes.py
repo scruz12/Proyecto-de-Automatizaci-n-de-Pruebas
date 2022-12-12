@@ -52,6 +52,7 @@ def browser_function():
     botonEnviar.click()
     alert = chr_driver.switch_to.alert
     alert.accept()
+    print("mensaje enviado exitosamente | Test pasado")
 
 
 browser_function()

@@ -21,6 +21,10 @@ def browser_function():
 ##TEST CASE 2
 ##INSERCION DE CITAS A LA BD DE PHP
 
+    print("------------------------------------------------")
+    print("INICIO TEST CASE #2")
+    print("Test case de insercion de Citas")
+
 ##CLICK EN EL BOTON DE SACAR CITA
     time.sleep(5)
     botonCita = chr_driver.find_element(By.ID,'btn_sacarCita')
@@ -30,7 +34,7 @@ def browser_function():
     time.sleep(3)
     campoCedula = chr_driver.find_element(By.ID,'cedula')
     campoCedula.click()
-    campoCedula.send_keys("118050439")
+
 
 ##llenamos los campos || Correo
     time.sleep(3)
@@ -61,6 +65,9 @@ def browser_function():
     botonGuardar = chr_driver.find_element(By.ID,'btnIngresar')
     botonGuardar.click()
 
+    print("FIN TEST CASE #2")
+    print("Cita guardada correctamente, no hubieron errores")
+    print("------------------------------------------------")
 
 ##TEST CASE
     ##VISUALIZAR CITAS
@@ -68,13 +75,17 @@ def browser_function():
     chr_driver.execute_script("window.scrollTo(0,500)")
     time.sleep(15)
 
+    print("Citas creadas se visualizan correctamente")
 
 
 
 ##TEST CASE 3
 ##ACTUALIZAR CITA
+    print("------------------------------------------------")
+    print("INICIO TEST CASE #3")
+    print("Test case de actualizar Citas")
 
-##click al boton de actualizar
+    ##click al boton de actualizar
 
     chr_driver.execute_script("window.scrollTo(0,9000)")
     time.sleep(3)
@@ -93,9 +104,17 @@ def browser_function():
     botonActualizar2 = chr_driver.find_element(By.ID,'btnActualizar')
     botonActualizar2.click()
 
+    print("Cita actualiza correctamente")
+
+    print("FIN TEST CASE #3")
+    print("------------------------------------------------")
 
 ##TEST CASE 4
 ##ELIMINAR CITA
+
+    print("------------------------------------------------")
+    print("INICIO TEST CASE #4")
+    print("Test case de eliminar Citas")
 
 ##click al boton de actualizar
     time.sleep(3)
@@ -120,4 +139,6 @@ def browser_function():
     botonRegresar = chr_driver.find_element(By.XPATH,'//*[@id="why-us"]/div/div/div/div/div/a')
     botonRegresar.click()
 
+    print("FIN TEST CASE #4")
+    print("------------------------------------------------")
 browser_function()

@@ -49,6 +49,7 @@ def browser_function1():
     boton.click()
     alert = chr_driver.switch_to.alert
     alert.accept()
+    print("La clave es incorrecta, intente de nuevo")
 
 ##Reintentamos el login con la clave correspondiente
     time.sleep(3)
@@ -62,6 +63,8 @@ def browser_function1():
     boton.click()
     alert = chr_driver.switch_to.alert
     alert.accept()
+
+    print("Inicio con exito")
 
 ##Cierre de sesion
     time.sleep(5)
